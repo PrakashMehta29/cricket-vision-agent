@@ -7,7 +7,12 @@ from gtts import gTTS # Commentary ke liye
 import base64
 
 # 🔴 API KEY LOCK (Don't Forget)
-genai.configure(api_key="AIzaSyAECmK45qF3mLv_SpMVLyEH8Jin8elTREE")
+api_key = os.getenv("GEMINI_API_KEY")
+
+if api_key:
+    genai.configure(api_key=api_key)
+else:
+    st.error("API Key missing! Please set GEMINI_API_KEY environment variable.")
 
 SYSTEM_PROMPT = """
 You are the "Agentic Cricket Vision & Strategy Engine", an elite multimodal AI. 
