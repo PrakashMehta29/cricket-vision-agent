@@ -1,0 +1,154 @@
+/* UI CONFIG: GOOGLE AWARD WINNER FIGMA CLEAN THEME */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+body, .stApp {
+    background: #020617;
+    color: #e2e8f0;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Figma Glassmorphism Orbs */
+.stApp::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(0,0,0,0) 70%);
+    top: -150px;
+    left: -150px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.stApp::after {
+    content: "";
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, rgba(0,0,0,0) 70%);
+    bottom: -200px;
+    right: -200px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.main {
+    position: relative;
+    z-index: 1;
+}
+
+/* Beautiful Clean Buttons */
+.stButton>button { 
+    background: rgba(255, 255, 255, 0.03);
+    color: #38bdf8;
+    border-radius: 12px; 
+    height: 3.5em; 
+    width: 100%; 
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+.stButton>button:hover {
+    transform: translateY(-2px);
+    background: rgba(56, 189, 248, 0.1);
+    border-color: #38bdf8;
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.2);
+    color: #fff;
+}
+
+/* File Uploader Customization */
+[data-testid="stFileUploader"] > div {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 2px dashed #38bdf8 !important;
+    border-radius: 16px !important;
+    transition: all 0.3s ease !important;
+}
+[data-testid="stFileUploader"] > div:hover {
+    border-color: #818cf8 !important;
+    background: rgba(30, 41, 59, 0.8) !important;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.2) !important;
+}
+[data-testid="stFileUploader"] * {
+    color: #f8fafc !important;
+}
+
+/* Feedback Section Customization */
+[data-testid="stTextInput"] > div > div > input {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(56, 189, 248, 0.4) !important;
+    color: #f8fafc !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.3s ease;
+}
+[data-testid="stTextInput"] > div > div > input:focus {
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2) !important;
+}
+
+/* Dashboard Override for Figma Clean Look */
+.ipl-dashboard {
+    font-family: 'Outfit', sans-serif;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    overflow: hidden;
+    margin-top: 30px;
+}
+.ipl-header {
+    background: transparent;
+    padding: 25px;
+    text-align: center;
+    font-size: 1.8rem;
+    color: #f8fafc;
+    letter-spacing: 3px;
+    font-weight: 300;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.ipl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0;
+}
+.ipl-panel {
+    padding: 30px;
+    border-right: 1px solid rgba(255,255,255,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.02);
+    position: relative;
+    transition: background 0.3s ease;
+}
+.ipl-panel:hover {
+    background: rgba(255,255,255,0.02);
+}
+.ipl-panel::before { display: none; } /* Remove old bold red/gold borders */
+
+.ipl-title {
+    font-family: 'Outfit', sans-serif; 
+    font-size: 1rem; 
+    color: #94a3b8; 
+    margin-bottom: 25px; 
+    letter-spacing: 2px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.ipl-row {
+    display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+.ipl-label { color: #64748b; font-weight: 400; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; }
+.ipl-val { color: #f8fafc; font-weight: 600; font-size: 1.1rem; }
+
+/* Progress Bars Clean */
+.ipl-bar-bg { width: 100%; height: 4px; background: rgba(255,255,255,0.05); border-radius: 10px; margin-top: 10px; overflow: hidden; border: none; }
+.ipl-bar-fg { height: 100%; background: linear-gradient(90deg, #38bdf8, #818cf8); border-radius: 10px; box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); animation: growBar 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+
+.ipl-ticker-wrap { background: transparent; padding: 15px; border-top: 1px solid rgba(255,255,255,0.05); overflow: hidden; white-space: nowrap; }
+.ipl-ticker { display: inline-block; font-family: 'Outfit', sans-serif; font-weight: 300; font-size: 0.95rem; letter-spacing: 2px; color: #94a3b8; padding-left: 100%; animation: ipl-scroll 35s linear infinite; }

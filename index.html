@@ -1,0 +1,69 @@
+<!-- Lottie Player Dependency -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<!-- Advanced Canvas Particle Engine Background -->
+<canvas id="particleCanvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; opacity: 0.5;"></canvas>
+
+<div style="text-align: center; padding: 50px 20px 30px 20px; z-index: 10; position: relative;">
+<h1 style="font-family: 'Outfit', sans-serif; font-size: 3.5rem; font-weight: 800; background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; letter-spacing: -1px; filter: drop-shadow(0px 10px 20px rgba(56,189,248,0.2)); line-height: 1.1;">
+IPL 2026: AGENTIC VISION
+</h1>
+<p style="color: #64748b; font-family: 'Outfit', sans-serif; font-size: 1rem; letter-spacing: 6px; margin-top: 15px; font-weight: 600; text-transform: uppercase;">
+Built for the Win • Google Award Standard
+</p>
+<div style="display: flex; justify-content: center; margin-top: 40px; margin-bottom: 20px;">
+<lottie-player src="https://lottie.host/819fa107-1d89-498c-8512-eb7f1b212f8a/M6G7mY9gU1.json" background="transparent" speed="1" style="width: 280px; height: 280px; filter: drop-shadow(0 20px 30px rgba(56,189,248,0.15));" loop autoplay></lottie-player>
+</div>
+</div>
+
+<script>
+const canvas = document.getElementById('particleCanvas');
+const ctx = canvas.getContext('2d');
+function resizeCanvas() {
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+let particlesArray = [];
+class Particle {
+constructor() {
+this.x = Math.random() * canvas.width;
+this.y = Math.random() * canvas.height;
+this.size = Math.random() * 2;
+this.speedX = (Math.random() * 1) - 0.5;
+this.speedY = (Math.random() * 1) - 0.5;
+this.color = Math.random() > 0.5 ? '#38bdf8' : '#818cf8';
+this.opacity = Math.random() * 0.5 + 0.1;
+}
+update() {
+this.x += this.speedX;
+this.y += this.speedY;
+if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+}
+draw() {
+ctx.globalAlpha = this.opacity;
+ctx.fillStyle = this.color;
+ctx.beginPath();
+ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+ctx.fill();
+}
+}
+function init() {
+particlesArray = [];
+for (let i = 0; i < 100; i++) {
+particlesArray.push(new Particle());
+}
+}
+function animate() {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+for (let i = 0; i < particlesArray.length; i++) {
+particlesArray[i].update();
+particlesArray[i].draw();
+}
+requestAnimationFrame(animate);
+}
+init();
+animate();
+</script>
