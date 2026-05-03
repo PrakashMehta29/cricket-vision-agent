@@ -7,7 +7,7 @@ from gtts import gTTS # Commentary ke liye
 import base64
 
 # 🔴 API KEY LOCK (Don't Forget)
-api_key = os.getenv("GEMINI_API_KEY")
+api_key = os.environ.get("GEMINI_API_KEY", "YOUR API KEY")
 
 if api_key:
     genai.configure(api_key=api_key)
